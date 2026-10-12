@@ -1,0 +1,23 @@
+# DEMO club config. Replace every value with your club's (SETUP.md). Never put real people here.
+club:
+  short_name: Demo
+  full_name: Demo Badminton Club
+  website_url: https://example.org/demo/
+
+site:
+  title: Demo Fixtures
+  description: Match fixtures for every Demo Badminton Club team.
+  locale: en-GB
+  timezone: Europe/London
+
+calendar:
+  uid_domain: demo-fixtures
+
+season:
+  start_month: 8
+
+branding:
+  brand: "#4f46e5"
+
+bookings:
+  club_night_weekday: thursday

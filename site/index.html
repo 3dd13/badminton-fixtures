@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="__LANG__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>__SITE_TITLE__</title>
+  <meta name="description" content="__SITE_DESCRIPTION__">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="__BRAND__">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    // Apply a saved light/dark choice before first paint (no flash). No saved choice = follow the system.
+    try { const t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch {}
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to fixtures</a>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="23" fill="var(--brand)"/>
+          <g fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 36 16 16h16z"/><path d="M24 36 20 16M24 36l4-20"/><path d="M17.5 20h13"/>
+          </g>
+          <circle cx="24" cy="36.5" r="4.2" fill="#fff"/>
+        </svg>
+        <div>
+          <h1>__CLUB_FULL_NAME__</h1>
+          <p class="season"><span class="season-pill" data-season></span> <span class="season-text">season fixtures</span></p>
+        </div>
+      </div>
+      <section class="next-card" id="next-card" aria-label="Next match"></section>
+    </div>
+  </header>
+
+  <nav class="modebar" aria-label="Pages">
+    <div class="wrap modebar-inner">
+      <div class="modes" id="tabs"></div>
+      <button type="button" class="icon-btn theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode"></button>
+    </div>
+  </nav>
+
+  <main id="main" class="wrap" tabindex="-1"></main>
+
+  <dialog id="cal-panel" class="cal-panel" aria-labelledby="cal-panel-h" aria-describedby="cal-panel-desc"></dialog>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner" id="footer"></div>
+  </footer>
+
+  <script id="fixtures-data" type="application/json">__FIXTURES_JSON__</script>
+  <script src="app.js"></script>
+</body>
+</html>
